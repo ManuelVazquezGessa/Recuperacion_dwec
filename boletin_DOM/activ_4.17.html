@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>Modificar de color de texto</h3>
+
+    <p id="parrafo">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, quaerat? Repellat minus officia
+        dolor obcaecati
+        tempore vel. Alias, repellat voluptate!</p>
+
+    Seleccionar color: <select name="color" id="color">
+        <option value="red">Rojo</option>
+        <option value="green">Verde</option>
+        <option value="blue">Azul</option>
+    </select>
+    <button onclick="colorLetra()">Cambiar</button>
+
+    <script>
+        function colorLetra() {
+            let parrafo = document.getElementById("parrafo");
+            let color = document.getElementById("color").value;
+            parrafo.style.color = color;
+        }
+    </script>
+</body>
+</html>
