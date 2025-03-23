@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="divParrafo"></div>
+    <button onclick="anadirParrafo()">Añadir parrafo</button>
+
+    <script>
+        let contador=1;
+        
+        function anadirParrafo(){
+            let div = document.getElementById("divParrafo");
+            let parrafo = document.createElement("p");
+
+            parrafo.innerHTML("Parrafo numero "+ contador);
+            div.appendChild(parrafo);
+
+            contador++;
+        }
+    </script>
+</body>
+</html>
