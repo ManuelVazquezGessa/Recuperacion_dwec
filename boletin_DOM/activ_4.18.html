@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>Cambiar visibilidad del texto</h3>
+
+    <p id="parrafo">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, quaerat? Repellat minus officia
+        dolor obcaecati
+        tempore vel. Alias, repellat voluptate!</p>
+
+    Seleccionar visibilidad: <select name="visibilidad" id="visibilidad">
+        <option value="inline">inline</option>
+        <option value="none">none</option>
+    </select>
+    <button onclick="visibilidadLetra()">Ocultar</button>
+
+    <script>
+        function visibilidadLetra() {
+            let parrafo = document.getElementById("parrafo");
+            let visibilidad = document.getElementById("visibilidad").value;
+            parrafo.style.display = visibilidad;
+        }
+    </script>
+</body>
+</html>
