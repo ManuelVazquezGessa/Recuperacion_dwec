@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>Lista dinamica</h2>
+    <ul id="lista">
+        <li>Javier Soldado</li>
+    </ul>
+    <hr>
+    Nuevo Texto <input type="text" name="nuevoText" id="nuevoText">
+    <input type="button" onclick="insert();" value="insertAdjancentHTML" />
+    <input type="button" onclick="create();" value="createElement" />
+
+    <script>
+        function insert() {
+            let contenido = document.getElementById("nuevoText").value;
+            let lista = document.getElementById("lista");
+            lista.insertAdjacentHTML('beforeend', `<li>${contenido}</li>`);
+            // lista.insertAdjacentHTML('afterend', `<li>${contenido}</li>`);
+            // lista.insertAdjacentHTML('beforebegin', `<li>${contenido}</li>`);
+            // lista.insertAdjacentHTML('afterbegin', `<li>${contenido}</li>`);
+        }
+
+
+        function create() {
+            let contenido = document.getElementById("nuevoText").value;
+
+            let li = document.createElement("li");
+            li.textContent = contenido;
+
+            let ul = document.getElementById("lista");
+            ul.appendChild(li);
+        }
+    </script>
+</body>
+
+</html>
