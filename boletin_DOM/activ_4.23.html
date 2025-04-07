@@ -1,11 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
+    Texto <input type="text" name="nuevoText" id="nuevoText">
     <input type="button" onclick="create();" value="Insertar texto nuevo" />
+
+    <div id="textos"></div>
+
+    <script>
+        let contador = 0;
+
+        function create() {
+            let contenido = document.getElementById("nuevoText").value;
+            let div = document.getElementById("textos");
+
+            let parrafoId = "parrafo_" + contador;
+            const nuevoTexto = `
+                <p id="${parrafoId}">
+                    ${contenido}
+                    <input type="button" onclick="copiarEncima('${parrafoId}');" value="Copiar Encima" />
+                    <input type="button" onclick="borrar('${parrafoId}');" value="Borrar" />
+                    <input type="button" onclick="actualizar('${parrafoId}');" value="Actualizar" />
+                </p>
+            `;
+            div.innerHTML += nuevoTexto;
+            contador++;
+        }
+
+        function borrar(id) {
+            document.getElementById(id).remove();
+        }
+
+        function copiarEncima(id) {
+            let contenido = document.getElementById("nuevoText").value;
+            let parrafo = document.getElementById(id);
+            let nuevoId = "parrafo_" + contador;
+
+            const nuevoTexto = `
+        <p id="${nuevoId}">
+            ${contenido}
+            <input type="button" onclick="copiarEncima('${nuevoId}');" value="Copiar Encima" />
+            <input type="button" onclick="borrar('${nuevoId}');" value="Borrar" />
+            <input type="button" onclick="actualizar('${nuevoId}');" value="Actualizar" />
+        </p>
+         `;
+
+            parrafo.insertAdjacentHTML('beforebegin', nuevoTexto);
+            contador++;
+        }
+
+
+        function actualizar(id) {
+            let contenido = document.getElementById("nuevoText").value;
+            let parrafo = document.getElementById(id);
+            parrafo.childNodes[0].textContent = contenido + ' ';
+        }
+    </script>
 </body>
+
 </html>
