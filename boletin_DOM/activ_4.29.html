@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div style="width: 200px; height: 200px; background-color: black; border-radius: 20%; margin-bottom: 50px; display: flex; align-items: center; justify-content: center;">
+        <p id="numero" style="font-size: 5em; font-weight: bold; color: white; text-align: center; margin: 0;"></p>
+    </div>
+
+    <button onclick="lanzarDado()">Lanzar Dado</button>
+
+    <script>
+        let intervalo;
+
+        function lanzarDado() {
+            let numeroElemento = document.getElementById("numero");
+            let tiempoTotal = 5000; 
+            let intervaloTiempo = 500; 
+            let tiempoPasado = 0;
+
+            clearInterval(intervalo);
+
+            intervalo = setInterval(() => {
+                let numeroAleatorio = Math.floor(Math.random() * 6) + 1;
+                numeroElemento.innerHTML = numeroAleatorio;
+                tiempoPasado += intervaloTiempo;
+
+                if (tiempoPasado >= tiempoTotal) {
+                    clearInterval(intervalo);
+                }
+            }, intervaloTiempo);
+        }
+    </script>
+</body>
+
+</html>
